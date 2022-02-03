@@ -1,3 +1,6 @@
+import HUD from "./HUD.js";
+import GameArea from "./GameArea.js";
+
 export default class Root extends PIXI.Container{
     constructor(width, height){
         super();
@@ -6,6 +9,8 @@ export default class Root extends PIXI.Container{
         this.screenHeight = height;
 
         this._background = this._createBackground();
+        this._gameArea = this._createGameArea();
+        this._hud = this._createHUD();
 
         this.resize = this.resize.bind(this);
 
@@ -26,12 +31,21 @@ export default class Root extends PIXI.Container{
         const scaleY = this.screenHeight/this._background.height;
 
         this._background.scale.set(Math.max(scaleX, scaleY));
-        
-        // this._background.scale.set(1);
-        // const scaleX = this.screenWidth/this._background.width;
-        // const scaleY = this.screenHeight/this._background.height;
 
-        // this._background.scale.set(Math.min(scaleX, scaleY));
+        const positionY = this.screenHeight * 0.8;
+
+        this._hud.position.set(this.screenWidth/2, positionY);
+
+
+        this._gameArea.position.set(this.screenWidth/2, this.screenHeight/2 - 100);
+    }
+
+    _createHUD(){
+        return this.addChild(new HUD());
+    }
+
+    _createGameArea(){
+        return this.addChild(new GameArea());
     }
 
     _createBackground(){
