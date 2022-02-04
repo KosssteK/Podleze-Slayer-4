@@ -6,6 +6,8 @@ let root = null;
 //to jest podobne do tego co bylo wczesniej PIXI.Application
 const renderer = PIXI.autoDetectRenderer(window.screenWidth, window.screenHeight);
 
+
+
 // ogarnalem ten loader, troche ogarniania na necie ale siadlo
 // add dodaje teksture
 // load odpala sie jezeli wszystkie tekstury sie zaladowaly dlatego do load wrzucilem call back ktory tworzy gre itd zeby 
@@ -13,7 +15,7 @@ const renderer = PIXI.autoDetectRenderer(window.screenWidth, window.screenHeight
 // wyeksportowalem ten loader zeby mozna bylo go uzywac do wydostawania assetow z niego do tworzenia spriteow itd
 // nie dalem default dlatego przy imporcie trzeba uzyc jego dokladnej nazwy
 export const loader = new PIXI.Loader();
-loader.add("../images/bg.jpeg");
+loader.add("/images/bg.jpeg");
 loader.load(handleLoadComplete);
 
 document.body.appendChild(renderer.view);

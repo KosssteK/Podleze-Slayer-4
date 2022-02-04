@@ -61,7 +61,7 @@ export default class Root extends PIXI.Container{
         // to jest pomocne jak chcesz stworzyc pole w obiekcie ktore ma np w nazwie "-"
         // normalnie nie da sie zrobic const obj = {imie-nazwisko: "ala kot"} 
         // ale da sie zrobic const obj; obj["imie-nazwisko"] = "ala kot"; xd
-        const bg = new PIXI.Sprite(loader.resources["../images/bg.jpeg"].texture);
+        const bg = new PIXI.Sprite(loader.resources["/images/bg.jpeg"].texture);
         console.log(bg);
         bg.anchor.set(0.5);
         return this.addChild(bg);
