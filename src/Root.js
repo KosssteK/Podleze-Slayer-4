@@ -1,9 +1,9 @@
-import HUD from "./HUD.js";
-//GameArea i HUD maja "default" przy exporcie wiec w sumie moglem nazwac to jakkolwiek 
+import HUD from './HUD.js';
+//GameArea i HUD maja 'default' przy exporcie wiec w sumie moglem nazwac to jakkolwiek 
 //ale nazwalem to tak samo zeby bylo wiadomo czym jest ten import
-import GameArea from "./GameArea.js";
-//tu sa te {} i tam wpisuje sie nazwe tak zwanego "Named Exportu" 
-import {loader} from "./app.js";
+import GameArea from './GameArea.js';
+//tu sa te {} i tam wpisuje sie nazwe tak zwanego 'Named Exportu' 
+import {loader} from './app.js';
 
 export default class Root extends PIXI.Container{
     constructor(width, height){
@@ -56,12 +56,12 @@ export default class Root extends PIXI.Container{
     _createBackground(){
         // PIXI.Text
         // PIXI.Texture
-        // tutaj wyciagnalem z loadera zaimportowany asset, to ["../images.bg.jpeg"] to jest magia JSa xd
-        // bo nie dosc ze na obiektach mozesz odwolywac sie do pól jako loader.resources to mozna tez loader["resources"]
-        // to jest pomocne jak chcesz stworzyc pole w obiekcie ktore ma np w nazwie "-"
-        // normalnie nie da sie zrobic const obj = {imie-nazwisko: "ala kot"} 
-        // ale da sie zrobic const obj; obj["imie-nazwisko"] = "ala kot"; xd
-        const bg = new PIXI.Sprite(loader.resources["/images/bg.jpeg"].texture);
+        // tutaj wyciagnalem z loadera zaimportowany asset, to ['../images.bg.jpeg'] to jest magia JSa xd
+        // bo nie dosc ze na obiektach mozesz odwolywac sie do pól jako loader.resources to mozna tez loader['resources']
+        // to jest pomocne jak chcesz stworzyc pole w obiekcie ktore ma np w nazwie '-'
+        // normalnie nie da sie zrobic const obj = {imie-nazwisko: 'ala kot'} 
+        // ale da sie zrobic const obj; obj['imie-nazwisko'] = 'ala kot'; xd
+        const bg = new PIXI.Sprite(loader.resources['/images/bg.jpeg'].texture);
         console.log(bg);
         bg.anchor.set(0.5);
         return this.addChild(bg);

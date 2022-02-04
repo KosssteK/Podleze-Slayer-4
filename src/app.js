@@ -15,7 +15,8 @@ const renderer = PIXI.autoDetectRenderer(window.screenWidth, window.screenHeight
 // wyeksportowalem ten loader zeby mozna bylo go uzywac do wydostawania assetow z niego do tworzenia spriteow itd
 // nie dalem default dlatego przy imporcie trzeba uzyc jego dokladnej nazwy
 export const loader = new PIXI.Loader();
-loader.add("/images/bg.jpeg");
+const rootPath = document.location.pathname;
+loader.add(`${rootPath}images/bg.jpeg`);
 loader.load(handleLoadComplete);
 
 document.body.appendChild(renderer.view);
