@@ -1,4 +1,6 @@
-import Root from './Root.js';
+import Root from './views/Root.js';
+import AssetsModel from './models/AssetsModel.js';
+
 
 // stworzylem root jako zmienna globalna zeby bylo ja widac wszedzie (da sie to lepiej zrobic ale to trzebaby pomyslec)
 let root = null;
@@ -6,21 +8,10 @@ let root = null;
 //to jest podobne do tego co bylo wczesniej PIXI.Application
 const renderer = PIXI.autoDetectRenderer(window.screenWidth, window.screenHeight);
 
-
-
-// ogarnalem ten loader, troche ogarniania na necie ale siadlo
-// add dodaje teksture
-// load odpala sie jezeli wszystkie tekstury sie zaladowaly dlatego do load wrzucilem call back ktory tworzy gre itd zeby 
-// miec pewnosc ze tworzenie sprite'ow odbywa sie dopiero po zaladowaniu assetow
-// wyeksportowalem ten loader zeby mozna bylo go uzywac do wydostawania assetow z niego do tworzenia spriteow itd
-// nie dalem default dlatego przy imporcie trzeba uzyc jego dokladnej nazwy
-export const loader = new PIXI.Loader();
-const rootPath = document.location.pathname;
-loader.add('images/bg.jpeg', `${rootPath}images/bg.jpeg`);
-loader.load(handleLoadComplete);
-
 document.body.appendChild(renderer.view);
 
+
+AssetsModel.addLoader(new PIXI.Loader(), {loadHandler: handleLoadComplete});
 
 // to jest ciekawa sprawa
 // przez to ze przegladarka rysuje wszystko jak najszybciej potrafi to ten game loop wywoluje sie za kazdym razem jak 
