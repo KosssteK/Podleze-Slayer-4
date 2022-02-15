@@ -15,10 +15,15 @@ class AssetsModel {
         if(!this.loader){
             this.loader = loader;
 
-            this.loader.add(this._getAssetsList().map(el => {
+            const assetsArray = this._getAssetsList().map(el => {
                 const rootPath = document.location.pathname;
-                return {name: el, url: rootPath + el};
-            }));
+                return {
+                    name: el, 
+                    url: rootPath + el
+                };
+            });
+
+            this.loader.add(assetsArray);
             this.loader.load(config.loadHandler);
         }else{
             console.warn("Loader already exists!");
@@ -32,7 +37,8 @@ class AssetsModel {
     _getAssetsList(){
         return [
             'images/bg.jpeg',
-            'images/map.png'
+            'images/map.png',
+            'images/player.png'
         ];
     }
 }

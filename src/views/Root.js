@@ -25,6 +25,12 @@ export default class Root extends PIXI.Container{
         this._resize(width, height);
     }
 
+    onKeyDown(keyCode){
+        console.log(keyCode);
+        this._gameArea.onKeyDown(keyCode);
+
+    }
+
     _resize(width, height){
         this.screenWidth = width;
         this.screenHeight = height;

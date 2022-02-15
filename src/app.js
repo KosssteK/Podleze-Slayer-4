@@ -13,6 +13,7 @@ document.body.appendChild(renderer.view);
 
 AssetsModel.addLoader(new PIXI.Loader(), {loadHandler: handleLoadComplete});
 
+
 // to jest ciekawa sprawa
 // przez to ze przegladarka rysuje wszystko jak najszybciej potrafi to ten game loop wywoluje sie za kazdym razem jak 
 // przegladarka rysuje czyli powiedzmy jak masz kompa mocnego to 1000 razy na sekunde 
@@ -53,3 +54,9 @@ function handleLoadComplete(){
     root = new Root(window.innerWidth, window.innerHeight);
     gameLoop();
 }
+
+function onKeyDown (keyObj){
+    root.onKeyDown(keyObj.keyCode);
+}
+
+document.addEventListener('keydown', onKeyDown);
